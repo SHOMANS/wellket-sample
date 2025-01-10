@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import HowItWorks from "@/components/HowItWorks";
 
 const LandingPage: React.FC = () => {
   return (
@@ -109,7 +110,8 @@ const LandingPage: React.FC = () => {
       </motion.section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-16">
+      <HowItWorks />
+      {/* <section id="how-it-works" className="py-16">
         <motion.div
           className="container mx-auto px-6"
           initial={{ opacity: 0, y: 50 }}
@@ -133,8 +135,8 @@ const LandingPage: React.FC = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </section>
+        </motion.div> 
+      </section> */}
 
       {/* Auto Slider Section */}
       <motion.section
