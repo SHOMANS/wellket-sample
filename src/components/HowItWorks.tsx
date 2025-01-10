@@ -41,7 +41,7 @@ const Step: React.FC<{ step: { title: string; description: string, image: string
         <p className="text-gray-600 text-center">{step.description}</p>
       </div>
 
-      <div className={`flex flex-col items-center justify-center absolute ${index % 2 === 0 ? "md:-translate-x-52" : "md:translate-x-52"} md:-translate-y-10`}>
+      <div className={`flex flex-col items-center justify-center absolute top-32 md:top-0 ${index % 2 === 0 ? "md:-translate-x-52" : "md:translate-x-52"} md:-translate-y-10`}>
         <Image src={step.image} alt="" width={250} height={250} />
       </div>
     </motion.div>
