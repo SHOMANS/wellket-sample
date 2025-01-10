@@ -6,77 +6,86 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 
-const GalleryCarousel: React.FC = () => {
-
-
+const TestimonialsCarousel: React.FC = () => {
   return (
-    <section id="gallery" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-12">Gallery</h2>
-
-        <Swiper
-          pagination={{
-            dynamicBullets: true,
-            clickable: true
-          }}
-          autoplay={{
-            delay: 3000, // Time between slides in milliseconds (3 seconds)
-            disableOnInteraction: false, // Continue autoplay even after user interaction
-          }}
-          navigation
-          loop
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-
-          <SwiperSlide>
-            <div className='h-40'>
-              <Image
-                src="https://source.unsplash.com/random/800x600?sig=1"
-                alt="Image 1"
-                // className="w-full h-auto object-cover"
-                fill
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='h-40'>
-              <Image
-                src="https://source.unsplash.com/random/800x600?sig=2"
-                alt="Image 2"
-                // className="w-full h-auto object-cover"
-                fill
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='h-40'>
-              <Image
-                src="https://source.unsplash.com/random/800x600?sig=3"
-                alt="Image 3"
-                // className="w-full h-auto object-cover"
-                fill
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='h-40'>
-              <Image
-                src="https://source.unsplash.com/random/800x600?sig=4"
-                alt="Image 4"
-                // className="w-full h-auto object-cover"
-                fill
-              />
-            </div>
-          </SwiperSlide>
-
-        </Swiper>
-      </div>
-    </section>
+    <Swiper
+      pagination={{
+        dynamicBullets: true,
+        clickable: true
+      }}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      loop
+      modules={[Pagination, Autoplay]}
+      className="mySwiper"
+    >
+      <SwiperSlide>
+        <div className="flex flex-col lg:flex-row items-center justify-center p-8 bg-gray-100 rounded-lg shadow-md">
+          <div className="lg:w-2/3 text-center lg:text-left">
+            <p className="text-lg italic mb-4 text-gray-700">
+              {'"'}A game-changer! I love how simple it is to use and how it boosts my productivity every day.{'"'}
+            </p>
+            <p className="font-bold text-gray-800">Jane Smith</p>
+          </div>
+          <div className="lg:w-1/3 flex justify-center mt-4 lg:mt-0 max-w-72">
+            <Image
+              src="/images/person2.jpg"
+              alt="Jane Smith"
+              width={120}
+              height={120}
+              className="rounded-full"
+              objectFit='cover'
+            />
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="flex flex-col lg:flex-row items-center justify-center p-8 bg-gray-100 rounded-lg shadow-md">
+          <div className="lg:w-2/3 text-center lg:text-left">
+            <p className="text-lg italic mb-4 text-gray-700">
+              {'"'}A game-changer! I love how simple it is to use and how it boosts my productivity every day.{'"'}
+            </p>
+            <p className="font-bold text-gray-800">Jane Smith</p>
+          </div>
+          <div className="lg:w-1/3 flex justify-center mt-4 lg:mt-0 max-w-72">
+            <Image
+              src="/images/person2.jpg"
+              alt="Jane Smith"
+              width={120}
+              height={120}
+              className="rounded-full"
+              objectFit='cover'
+            />
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="flex flex-col lg:flex-row items-center justify-center p-8 bg-gray-100 rounded-lg shadow-md">
+          <div className="lg:w-2/3 text-center lg:text-left">
+            <p className="text-lg italic mb-4 text-gray-700">
+              {'"'}A game-changer! I love how simple it is to use and how it boosts my productivity every day.{'"'}
+            </p>
+            <p className="font-bold text-gray-800">Jane Smith</p>
+          </div>
+          <div className="lg:w-1/3 flex justify-center mt-4 lg:mt-0 max-w-72">
+            <Image
+              src="/images/person2.jpg"
+              alt="Jane Smith"
+              width={120}
+              height={120}
+              className="rounded-full"
+              objectFit='cover'
+            />
+          </div>
+        </div>
+      </SwiperSlide>
+    </Swiper>
   );
 };
 
-export default GalleryCarousel;
+export default TestimonialsCarousel;
