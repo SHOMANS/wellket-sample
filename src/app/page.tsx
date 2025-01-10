@@ -1,36 +1,53 @@
 "use client"
-// pages/index.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import HowItWorks from "@/components/HowItWorks";
 import GalleryCarousel from "@/components/Gallery";
-import Image from "next/image";
 
 const LandingPage: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Adjust the value for scroll threshold
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="font-sans">
-      <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50" >
-        <nav className="container mx-auto flex justify-between items-center py-4 px-6">
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+          }`}
+      >        <nav className="container mx-auto flex justify-between items-center py-4 px-6">
           <ul className="hidden md:flex space-x-8 text-gray-600">
+
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className={`text-xl font-bold ${isScrolled ? "text-black" : "text-white"}`}
+            >
+              WELLKET
+            </motion.div>
+
             {["Home", "How It Works", "Why Ketamine?", "Testimonials", "FAQ", "Contact Us"].map((item) => (
               <motion.li
                 whileHover={{ scale: 1.1, color: "#2563EB" }}
                 key={item}
               >
-                <a href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                <a href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  className={`${isScrolled ? "text-black" : "text-white"}`}>
                   {item}
                 </a>
               </motion.li>
             ))}
           </ul>
 
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="text-xl font-bold"
-          >
-            <Image src={"/images/logo.jpg"} fill alt="" objectFit="contain" />
-          </motion.div>
+
           <div className="flex space-x-4">
             <motion.a
               whileHover={{ scale: 1.1 }}
@@ -71,7 +88,7 @@ const LandingPage: React.FC = () => {
           Your browser does not support the video tag.
         </video>
 
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-70 z-[-1]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600 to-gray-500 opacity-70 z-[-1]"></div>
 
         {/* Content */}
         <motion.h1
