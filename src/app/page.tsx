@@ -59,11 +59,25 @@ const LandingPage: React.FC = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        // initial={{ opacity: 0, scale: 0.8 }}
-        // animate={{ opacity: 1, scale: 1 }}
-        // transition={{ duration: 1 }}
-        className="h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white flex flex-col justify-center items-center"
+        className="relative h-screen flex flex-col justify-center items-center text-white"
       >
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+        >
+          <source
+            src="/videos/video1.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-70 z-[-1]"></div>
+
+        {/* Content */}
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -84,11 +98,7 @@ const LandingPage: React.FC = () => {
           whileHover={{ scale: 1.1 }}
           className="bg-white text-blue-500 px-6 py-3 rounded-full shadow-lg hover:bg-gray-100"
         >
-          <Link
-            href="/get-started"
-          >
-            Get Started
-          </Link>
+          <Link href="/get-started">Get Started</Link>
         </motion.div>
       </section>
 
@@ -99,7 +109,7 @@ const LandingPage: React.FC = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 1 }}
-        className="py-16 bg-gray-100"
+        className="py-40 bg-gray-100"
       >
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-6">About Us</h2>
@@ -139,17 +149,19 @@ const LandingPage: React.FC = () => {
       </section> */}
 
       {/* Auto Slider Section */}
+
+      {/* <GalleryCarousel /> */}
+
       <motion.section
         id="auto-slider"
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="py-16 bg-gray-100"
+        className="py-40 bg-gray-100"
       >
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-6">Gallery</h2>
-          {/* Auto slider implementation here */}
           <p>Auto slider content placeholder.</p>
         </div>
       </motion.section>
@@ -161,7 +173,7 @@ const LandingPage: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="py-16"
+        className="py-40"
       >
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-6">FAQ</h2>
